@@ -119,11 +119,10 @@ class SPP(nn.Module):
 
 class Focus(nn.Module):
     '''
-    channel 짝, size 짝 +
-    channel 홀, size 짝 +
-    channel 짝, size 홀 +
-    channel 홀, size 홀 = c1 * 4
-    이 모듈을 통해 좀더 깊이있는 feature를 추출하려고 한 것 같다.
+    width 짝, height 짝 +
+    width 홀, height 짝 +
+    width 짝, height 홀 +
+    width 홀, height 홀 = c * 4, w,h / 2
     '''
     # Focus wh information into c-space
     def __init__(self, c1, c2, k=1, s=1, p=None, g=1, act=True):  # ch_in, ch_out, kernel, stride, padding, groups
